@@ -15,7 +15,7 @@
                 <app-log-list-row [rowData]="contact"></app-log-list-row>
             </tr>
             <tr *ngIf="!contacts.length">
-                <td colspan="7" class="has-text-centered">No contacts logged yet, hit the <a class="tag is-primary" routerLink="/add" routerLinkActive="active">+</a> to get started.</td>
+                <td colspan="7" class="has-text-centered">No contacts logged yet, hit the <a class="tag is-primary" [routerLink]="[{ outlets: { modal: ['add'] } }]" routerLinkActive="active">+</a> to get started.</td>
             </tr>
         </tbody>
     </table>

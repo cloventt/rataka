@@ -10,7 +10,7 @@
         <div class="navbar-end">
             <div class="navbar-item">
                 <div class="buttons">
-                    <a class="button is-primary" routerLink="/add" routerLinkActive="active">
+                    <a class="button is-primary" [routerLink]="[{ outlets: { modal: ['add'] } }]" routerLinkActive="active">
                         <strong>+</strong>
                     </a>
                 </div>
