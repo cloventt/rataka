@@ -1,0 +1,158 @@
+<div class="modal" id="new-contact-modal">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Add a new contact</p>
+            <button class="delete" aria-label="close" onclick="document.getElementById('new-contact-modal').classList.remove('is-active')"></button>
+        </header>
+        <section class="modal-card-body">
+            <div class="field is-horizontal">
+                <div class="field-label is-normal">
+                    <label class="label">Contact</label>
+                </div>
+                <div class="field-body">
+                    <div class="field has-addons">
+                        <p class="control is-expanded">
+                            <input class="input" type="text" placeholder="ZL3CLV">
+                        </p>
+                        <p class="control">
+                            <a class="button is-static">
+                                on
+                            </a>
+                        </p>
+                        <div class="control">
+                            <input class="input" type="text" placeholder="5">
+                        </div>
+                        <p class="control">
+                            <a class="button is-static">
+                                MHz
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="field is-horizontal">
+                <div class="field-label is-normal">
+                    <label class="label">TX</label>
+                </div>
+                <div class="field-body">
+                    <div class="field has-addons">
+                        <div class="control">
+                            <input class="input" type="text" placeholder="5" value="5">
+                        </div>
+                        <p class="control">
+                            <a class="button is-static">
+                                watts
+                            </a>
+                        </p>
+                        <div class="control is-expanded">
+                            <div class="select is-fullwidth">
+                                <select>
+                                    <option>FM</option>
+                                    <option>AM</option>
+                                    <option>CW</option>
+                                    <option>LSB</option>
+                                    <option>USB</option>
+                                    <option>DMR</option>
+                                    <option>YSF</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="field is-horizontal">
+                <div class="field-label is-normal">
+                    <label class="label">RST</label>
+                </div>
+                <div class="field-body">
+                    <div class="field has-addons">
+                        <p class="control">
+                            <a class="button is-static">
+                                RX
+                            </a>
+                        </p>
+                        <div class="control">
+                            <div class="select">
+                                <select>
+                                    <option>5</option>
+                                    <option>4</option>
+                                    <option>3</option>
+                                    <option>2</option>
+                                    <option>1</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="control">
+                            <div class="select">
+                                <select>
+                                    <option>9</option>
+                                    <option>8</option>
+                                    <option>7</option>
+                                    <option>6</option>
+                                    <option>5</option>
+                                    <option>4</option>
+                                    <option>3</option>
+                                    <option>2</option>
+                                    <option>1</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field has-addons">
+                        <p class="control">
+                            <a class="button is-static">
+                                TX
+                            </a>
+                        </p>
+                        <div class="control">
+                            <div class="select">
+                                <select>
+                                    <option>5</option>
+                                    <option>4</option>
+                                    <option>3</option>
+                                    <option>2</option>
+                                    <option>1</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="control">
+                            <div class="select">
+                                <select>
+                                    <option>9</option>
+                                    <option>8</option>
+                                    <option>7</option>
+                                    <option>6</option>
+                                    <option>5</option>
+                                    <option>4</option>
+                                    <option>3</option>
+                                    <option>2</option>
+                                    <option>1</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="field is-horizontal">
+                <div class="field-label is-normal">
+                    <label class="label">Notes</label>
+                </div>
+                <div class="field-body">
+                    <div class="field">
+                        <div class="control">
+                            <textarea class="textarea" placeholder="Jot down anything interesting"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-success">Save</button>
+            <button class="button" onclick="document.getElementById('new-contact-modal').classList.remove('is-active')">Cancel</button>
+        </footer>
+    </div>
+</div>

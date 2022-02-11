@@ -1,14 +1,19 @@
-<table class="table is-striped is-fullwidth">
-    <thead>
-        <th>Time</th>
-        <th>Callsign</th>
-        <th>Frequency</th>
-        <th>Mode</th>
-        <th>Power</th>
-        <th>RST</th>
-        <th>Notes</th>
-    </thead>
-    <tbody>
+<div class="table-container">
 
-    </tbody>
-</table>
+    <table class="table is-striped is-fullwidth">
+        <thead>
+            <th>Time</th>
+            <th>Callsign</th>
+            <th>Frequency</th>
+            <th>Mode</th>
+            <th>Power</th>
+            <th>RST</th>
+            <th>Notes</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let contact of contacts">
+                <app-log-list-row [rowData]="contact"></app-log-list-row>
+            </tr>
+        </tbody>
+    </table>
+</div>
