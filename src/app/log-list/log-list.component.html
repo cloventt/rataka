@@ -14,6 +14,9 @@
             <tr *ngFor="let contact of contacts">
                 <app-log-list-row [rowData]="contact"></app-log-list-row>
             </tr>
+            <tr *ngIf="!contacts.length">
+                <td colspan="7" class="has-text-centered">No contacts logged yet, hit the <a class="tag is-primary" onclick="document.getElementById('new-contact-modal').classList.add('is-active')">+</a> to get started.</td>
+            </tr>
         </tbody>
     </table>
 </div>
