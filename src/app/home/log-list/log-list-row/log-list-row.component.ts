@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ContactLogEntry } from '../../db';
+import { ContactLogEntry } from '../../../db';
 
 @Component({
   selector: 'app-log-list-row',

@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'dexie';
-import { DataService } from '../data.service';
-import { ContactLogEntry } from '../db';
+import { DataService } from '../../data.service';
+import { ContactLogEntry } from '../../db';
 
 @Component({
   selector: 'app-log-list',

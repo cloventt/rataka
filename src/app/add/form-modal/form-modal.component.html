@@ -1,9 +1,9 @@
-<div class="modal" id="new-contact-modal">
+<div class="modal is-active" id="new-contact-modal">
     <div class="modal-background"></div>
     <div class="modal-card">
         <header class="modal-card-head">
             <p class="modal-card-title">Add a new contact</p>
-            <button class="delete" aria-label="close" onclick="document.getElementById('new-contact-modal').classList.remove('is-active')"></button>
+            <button class="delete" aria-label="close" routerLink="/" routerLinkActive="active"></button>
         </header>
         <section class="modal-card-body">
             <div class="field is-horizontal">
@@ -152,7 +152,7 @@
         </section>
         <footer class="modal-card-foot">
             <button class="button is-success">Save</button>
-            <button class="button" onclick="document.getElementById('new-contact-modal').classList.remove('is-active')">Cancel</button>
+            <button class="button" routerLink="/" routerLinkActive="active">Cancel</button>
         </footer>
     </div>
 </div>
