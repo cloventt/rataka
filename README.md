@@ -1,6 +1,6 @@
 # Rātaka
 
-You can use Rātaka right now, for free, in your browser: go to https://cloventt.github.io/rataka/.
+> **You can use Rātaka right now, for free, in your browser: go to https://cloventt.github.io/rataka/.**
 
 Rātaka is a web-based contact log for amateur radio operators. Rātaka has been designed to be privacy-focused and lightweight: all your logs
 are stored only on your device and there is as little bloat as possible included.
