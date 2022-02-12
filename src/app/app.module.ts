@@ -9,6 +9,7 @@ import { DataService } from './data.service';
 import { LogListRowComponent } from './home/log-list/log-list-row/log-list-row.component';
 import { HomeComponent } from './home/home.component';
 import { AddComponent } from './add/add.component';
+import { FormsModule } from '@angular/forms';
 
 const routes: Routes = [
   {
@@ -35,6 +36,7 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     RouterModule.forRoot(routes),
   ],
   providers: [DataService],
