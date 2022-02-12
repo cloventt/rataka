@@ -10,6 +10,7 @@ import { LogListRowComponent } from './home/log-list/log-list-row/log-list-row.c
 import { HomeComponent } from './home/home.component';
 import { AddComponent } from './add/add.component';
 import { FormsModule } from '@angular/forms';
+import { ToolbarComponent } from './toolbar/toolbar.component';
 
 const routes: Routes = [
   {
@@ -33,6 +34,7 @@ const routes: Routes = [
     LogListRowComponent,
     HomeComponent,
     AddComponent,
+    ToolbarComponent,
   ],
   imports: [
     BrowserModule,

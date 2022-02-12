@@ -1,24 +1,26 @@
 <div class="table-container">
 
-    <table class="table is-striped is-fullwidth">
+    <table class="table is-striped">
         <thead>
             <th>Time</th>
             <th>Callsign</th>
             <th>Frequency</th>
             <th>Mode</th>
             <th>Power</th>
-            <th>RST</th>
+            <th>TX RST</th>
+            <th>RX RST</th>
             <th>Notes</th>
         </thead>
         <tbody>
             <tr *ngFor="let rowData of contacts">
-                <td>{{ rowData.timestamp }}</td>
-                <td>{{ rowData.callsign }} </td>
-                <td>{{ rowData.frequency }}</td>
-                <td>{{ rowData.mode }}</td>
-                <td>{{ rowData.power }}</td>
-                <td></td>
-                <td>{{ rowData.notes }}</td>
+                <td><span class="tag">{{ rowData.timestamp }}</span></td>
+                <td><span class="tag">{{ rowData.callsign }}</span></td>
+                <td><span class="tag" *ngIf="rowData.frequency">{{ rowData.frequency }}MHz</span></td>
+                <td><span class="tag" *ngIf="rowData.mode">{{ rowData.mode }}</span></td>
+                <td><span class="tag" *ngIf="rowData.power">{{ rowData.power }}w</span></td>
+                <td><span class="tag" *ngIf="rowData.rstReceived">{{ rowData.rstReceived }}</span></td>
+                <td><span class="tag" *ngIf="rowData.rstSent">{{ rowData.rstSent }}</span></td>
+                <td><span class="tag" *ngIf="rowData.notes">{{ rowData.notes }}</span></td>
             </tr>
             <tr *ngIf="!contacts.length">
                 <td colspan="7" class="has-text-centered">No contacts logged yet, hit the <a class="tag is-primary" [routerLink]="[{ outlets: { modal: ['add'] } }]" routerLinkActive="active">+</a> to get started.</td>
