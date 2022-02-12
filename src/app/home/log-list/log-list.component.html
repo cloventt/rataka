@@ -10,6 +10,7 @@
             <th>TX RST</th>
             <th>RX RST</th>
             <th>Notes</th>
+            <th></th>
         </thead>
         <tbody>
             <tr *ngFor="let rowData of contacts">
@@ -21,9 +22,16 @@
                 <td><span class="tag" *ngIf="rowData.rstReceived">{{ rowData.rstReceived }}</span></td>
                 <td><span class="tag" *ngIf="rowData.rstSent">{{ rowData.rstSent }}</span></td>
                 <td><span class="tag" *ngIf="rowData.notes">{{ rowData.notes }}</span></td>
+                <td>
+                    <a class="icon has-text-danger" (click)="deleteRow(rowData.id)">
+                        <i class="fas fa-trash"></i>
+                    </a>
+                </td>
             </tr>
             <tr *ngIf="!contacts.length">
-                <td colspan="7" class="has-text-centered">No contacts logged yet, hit the <a class="tag is-primary" [routerLink]="[{ outlets: { modal: ['add'] } }]" routerLinkActive="active">+</a> to get started.</td>
+                <td colspan="7" class="has-text-centered">No contacts logged yet, hit the <a class="tag is-primary"
+                        [routerLink]="[{ outlets: { modal: ['add'] } }]" routerLinkActive="active">+</a> to get started.
+                </td>
             </tr>
         </tbody>
     </table>

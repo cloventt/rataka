@@ -32,4 +32,8 @@ export class DataService {
       .startsWithIgnoreCase(searchTerm.value)
       .toArray());
   }
+
+  public delete(id: number) {
+    return db.contactLogs.delete(id);
+  }
 }

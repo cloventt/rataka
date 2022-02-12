@@ -29,6 +29,16 @@ export class LogListComponent implements OnInit, OnDestroy {
     );
   }
 
+  public deleteRow(id: number | undefined) {
+    if (id == null) {
+      console.error("Got asked to delete an entry with an undefined id");
+      return;
+    }
+    if (confirm("Are you sure you want to delete this contact?")) {
+      this.dataService.delete(id);
+    }
+  }
+
   ngOnDestroy(): void {
       this.closeExistingSubscription();
   }
