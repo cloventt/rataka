@@ -1,6 +1,6 @@
 <div class="table-container">
 
-    <table class="table is-striped">
+    <table class="table is-striped is-fullwidth">
         <thead>
             <th>Time</th>
             <th>Callsign</th>
@@ -14,8 +14,8 @@
         <tbody>
             <tr *ngFor="let rowData of contacts">
                 <td><span class="tag">{{ rowData.timestamp }}</span></td>
-                <td><span class="tag">{{ rowData.callsign }}</span></td>
-                <td><span class="tag" *ngIf="rowData.frequency">{{ rowData.frequency }}MHz</span></td>
+                <td><span class="tag"><strong>{{ rowData.callsign }}</strong></span></td>
+                <td><span class="tag" *ngIf="rowData.frequency"><strong>{{ rowData.frequency }}</strong>MHz</span></td>
                 <td><span class="tag" *ngIf="rowData.mode">{{ rowData.mode }}</span></td>
                 <td><span class="tag" *ngIf="rowData.power">{{ rowData.power }}w</span></td>
                 <td><span class="tag" *ngIf="rowData.rstReceived">{{ rowData.rstReceived }}</span></td>
