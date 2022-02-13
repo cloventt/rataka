@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
+import { AuthService } from 'src/app/auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -7,7 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  loginUri: string;
+
+  constructor(public authService: AuthService) {
+    const loginUriBuilder = new URL('https://github.com/login/oauth/authorize');
+    loginUriBuilder.searchParams.append('client_id', authService.githubApiClientId);
+    loginUriBuilder.searchParams.append('redirect_uri', window.location.href);
+    // loginUriBuilder.searchParams.append('state', authervice.sessionStateToken);
+
+    this.loginUri = loginUriBuilder.toString();
+   }
 
   ngOnInit(): void {
   }

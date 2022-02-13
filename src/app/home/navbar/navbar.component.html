@@ -7,5 +7,11 @@
                     height="28">
             </a>
         </div>
+        <div class="navbar-end">
+            <div class="navbar-item">
+                <a class="button" href="{{ loginUri }}" *ngIf="!authService.isAuthenticated">Login with Github</a>
+                <a class="button" (click)="authService.logOut()" *ngIf="authService.isAuthenticated">Logout</a>
+            </div>
+        </div>
     </div>
 </nav>
