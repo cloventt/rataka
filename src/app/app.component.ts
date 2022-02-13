@@ -1,10 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { faTrash, faSearch } from '@fortawesome/fontawesome-free-solid';
-import fontawesome from '@fortawesome/fontawesome';
-import { Router } from '@angular/router';
+import { faTrash, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { AuthService } from './auth.service';
-
-fontawesome.library.add(faTrash, faSearch);
 
 
 @Component({
@@ -15,7 +11,7 @@ fontawesome.library.add(faTrash, faSearch);
 export class AppComponent implements OnInit {
   title = 'rataka-ui';
 
-  constructor(private authService: AuthService, private router: Router) {
+  constructor(private authService: AuthService) {
   }
 
   ngOnInit(): void {
