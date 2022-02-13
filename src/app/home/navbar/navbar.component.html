@@ -9,7 +9,14 @@
         </div>
         <div class="navbar-end">
             <div class="navbar-item">
-                <a class="button" href="{{ loginUri }}" *ngIf="!authService.isAuthenticated">Login with Github <fa-icon [icon]="faGithub"></fa-icon></a>
+                <a class="button" href="{{ loginUri }}" *ngIf="!authService.isAuthenticated">
+                    <span class="icon-text">
+                        <span>Login with Github</span>
+                        <span class="icon">
+                            <fa-icon [icon]="faGithub"></fa-icon>
+                        </span>
+                    </span>
+                </a>
                 <a class="button" (click)="authService.logOut()" *ngIf="authService.isAuthenticated">Logout</a>
             </div>
         </div>
