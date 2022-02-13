@@ -6,18 +6,27 @@
                 <img src="assets/images/logo-black.svg" alt="Rātaka: an amateur radio log for your browser" width="112"
                     height="28">
             </a>
+
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbar-menu">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+              </a>
         </div>
-        <div class="navbar-end">
-            <div class="navbar-item">
-                <a class="button" href="{{ loginUri }}" *ngIf="!authService.isAuthenticated">
-                    <span class="icon-text">
-                        <span>Login with Github</span>
-                        <span class="icon">
-                            <fa-icon [icon]="faGithub"></fa-icon>
+
+        <div id="navbar-menu" class="navbar-menu">
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <a class="button" href="{{ loginUri }}" *ngIf="!authService.isAuthenticated">
+                        <span class="icon-text">
+                            <span>Login with Github</span>
+                            <span class="icon">
+                                <fa-icon [icon]="faGithub"></fa-icon>
+                            </span>
                         </span>
-                    </span>
-                </a>
-                <a class="button" (click)="authService.logOut()" *ngIf="authService.isAuthenticated">Logout</a>
+                    </a>
+                    <a class="button" (click)="authService.logOut()" *ngIf="authService.isAuthenticated">Logout</a>
+                </div>
             </div>
         </div>
     </div>
