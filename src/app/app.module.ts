@@ -11,6 +11,8 @@ import { HomeComponent } from './home/home.component';
 import { AddComponent } from './add/add.component';
 import { FormsModule } from '@angular/forms';
 import { ToolbarComponent } from './toolbar/toolbar.component';
+import { HttpClientModule } from '@angular/common/http';
+import { CookieService } from 'ngx-cookie-service';
 
 const routes: Routes = [
   {
@@ -40,9 +42,13 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     FormsModule,
+    HttpClientModule,
     RouterModule.forRoot(routes),
   ],
-  providers: [DataService],
+  providers: [
+    CookieService,
+    DataService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
