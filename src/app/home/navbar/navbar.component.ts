@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { CookieService } from 'ngx-cookie-service';
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
+
 import { AuthService } from 'src/app/auth.service';
 
 @Component({
@@ -8,6 +9,8 @@ import { AuthService } from 'src/app/auth.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+
+  faGithub = faGithub;
 
   loginUri: string;
 
