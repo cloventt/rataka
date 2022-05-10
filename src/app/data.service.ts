@@ -10,14 +10,21 @@ export class DataService {
 
   constructor() { }
 
-  public addEntry(entry: ContactLogEntry): Promise<number> {
-    if (entry.callsign == null) {
+  public upsert(entry: ContactLogEntry): Promise<number> {
+    if (entry.callsign == null || entry.callsign.length == 0) {
       throw new Error("You need to provide a callsign")
     }
     if (entry.timestamp == null) {
       entry.timestamp = new Date().toISOString();
     }
-    return db.contactLogs.add(entry);
+    return db.contactLogs.put(entry);
+  }
+
+  public get(id: number): Observable<ContactLogEntry | undefined> {
+    return liveQuery(() => db.contactLogs
+      .where('id')
+      .equals(id)
+      .first());
   }
 
   public getAll(): Observable<ContactLogEntry[]> {

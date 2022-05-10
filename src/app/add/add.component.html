@@ -2,8 +2,9 @@
     <div class="modal-background"></div>
     <div class="modal-card">
         <form #data="ngForm" (ngSubmit)="onSubmit(data)">
+            <input class="input" type="hidden" name="id" [ngModel]="contactData?.id">
             <header class="modal-card-head">
-                <p class="modal-card-title">Add a new contact</p>
+                <p class="modal-card-title">{{ edit ? 'Edit' : 'Add' }} contact</p>
                 <button class="delete" aria-label="close" routerLink="/" routerLinkActive="active"></button>
             </header>
             <section class="modal-card-body">
@@ -14,7 +15,8 @@
                     <div class="field-body">
                         <div class="field has-addons">
                             <p class="control is-expanded">
-                                <input class="input" type="text" placeholder="ZL3CLV" name="callsign" ngModel>
+                                <input class="input" type="text" placeholder="ZL3CLV" name="callsign"
+                                    [ngModel]="contactData?.callsign" required>
                             </p>
                             <p class="control">
                                 <a class="button is-static">
@@ -22,7 +24,8 @@
                                 </a>
                             </p>
                             <div class="control">
-                                <input class="input" type="text" placeholder="5" name="frequency" ngModel>
+                                <input class="input" type="text" placeholder="5" name="frequency"
+                                    [ngModel]="contactData?.frequency" required>
                             </div>
                             <p class="control">
                                 <a class="button is-static">
@@ -40,7 +43,8 @@
                     <div class="field-body">
                         <div class="field has-addons">
                             <div class="control">
-                                <input class="input" type="text" placeholder="5" value="5" name="power" ngModel>
+                                <input class="input" type="text" placeholder="5" value="5" name="power"
+                                    [ngModel]="contactData?.power">
                             </div>
                             <p class="control">
                                 <a class="button is-static">
@@ -49,7 +53,7 @@
                             </p>
                             <div class="control is-expanded">
                                 <div class="select is-fullwidth">
-                                    <select name="mode" ngModel>
+                                    <select name="mode" [ngModel]="contactData?.mode">
                                         <option>FM</option>
                                         <option>AM</option>
                                         <option>CW</option>
@@ -145,15 +149,15 @@
                         <div class="field">
                             <div class="control">
                                 <textarea class="textarea" placeholder="Jot down anything interesting" name="notes"
-                                    ngModel></textarea>
+                                    [ngModel]="contactData?.notes"></textarea>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
-            <footer class="modal-card-foot">
+            <footer class="modal-card-foot" style="justify-content: flex-end">
+                <button *ngIf="edit" class="button is-danger is-right" (click)="delete(contactData?.id)" routerLink="/" routerLinkActive="active">Delete</button>
                 <input type="submit" class="button is-success" value="Save">
-                <button class="button" routerLink="/" routerLinkActive="active">Cancel</button>
             </footer>
         </form>
     </div>

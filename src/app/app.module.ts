@@ -15,14 +15,15 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent,
-    children: [
-      {
-        path: 'add',
-        outlet: 'modal',
-        component: AddComponent
-      }
-    ]
+    component: HomeComponent
+  },
+  {
+    path: 'add',
+    component: AddComponent
+  },
+  {
+    path: 'edit/:id',
+    component: AddComponent
   },
 ];
 
