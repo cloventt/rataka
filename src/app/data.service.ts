@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { liveQuery, Observable } from 'dexie';
+import "dexie-export-import";
 
 import { db, ContactLogEntry } from './db';
 
@@ -10,7 +11,7 @@ export class DataService {
 
   constructor() { }
 
-  public upsert(entry: ContactLogEntry): Promise<number> {
+  public async upsert(entry: ContactLogEntry): Promise<number> {
     if (entry.callsign == null || entry.callsign.length == 0) {
       throw new Error("You need to provide a callsign")
     }
@@ -42,5 +43,15 @@ export class DataService {
 
   public delete(id: number) {
     return db.contactLogs.delete(id);
+  }
+
+  public export() {
+    return db.export();
+  }
+
+  public import(dataBlob: string) {
+    return db.import(new Blob([dataBlob]), {
+      overwriteValues: true,
+    });
   }
 }

@@ -16,7 +16,7 @@ export class AppDB extends Dexie {
   contactLogs!: Table<ContactLogEntry, number>;
 
   constructor() {
-    super('ngdexieliveQuery');
+    super('ratakaHamCallLog');
     this.version(3).stores({
       contactLogs: '++id, callsign',
     });
