@@ -11,21 +11,27 @@
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
-              </a>
+            </a>
         </div>
 
         <div id="navbar-menu" class="navbar-menu">
             <div class="navbar-end">
                 <div class="navbar-item">
-                    <a class="button" href="{{ loginUri }}" *ngIf="!authService.isAuthenticated">
-                        <span class="icon-text">
-                            <span>Login with Github</span>
-                            <span class="icon">
-                                <fa-icon [icon]="faGithub"></fa-icon>
+                    <div class="buttons">
+
+                        <a class="button" href="{{ loginUri }}" *ngIf="!githubService.isAuthenticated">
+                            <span class="icon-text">
+                                <span>Login with Github</span>
+                                <span class="icon">
+                                    <fa-icon [icon]="faGithub"></fa-icon>
+                                </span>
                             </span>
-                        </span>
-                    </a>
-                    <a class="button" (click)="authService.logOut()" *ngIf="authService.isAuthenticated">Logout</a>
+                        </a>
+                        <a class="button" (click)="githubService.logOut()"
+                            *ngIf="githubService.isAuthenticated">Logout</a>
+                        <a class="button is-info" (click)="githubService.sync()"
+                            *ngIf="githubService.isAuthenticated">Sync</a>
+                    </div>
                 </div>
             </div>
         </div>

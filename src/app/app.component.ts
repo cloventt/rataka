@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { faTrash, faSearch } from '@fortawesome/free-solid-svg-icons';
-import { AuthService } from './auth.service';
+import { GithubService } from './github.service';
 
 
 @Component({
@@ -11,7 +11,7 @@ import { AuthService } from './auth.service';
 export class AppComponent implements OnInit {
   title = 'rataka-ui';
 
-  constructor(private authService: AuthService) {
+  constructor(private authService: GithubService) {
   }
 
   ngOnInit(): void {

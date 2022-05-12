@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 
-import { AuthService } from 'src/app/auth.service';
+import { GithubService } from 'src/app/github.service';
 
 @Component({
   selector: 'app-navbar',
@@ -14,9 +14,11 @@ export class NavbarComponent implements OnInit {
 
   loginUri: string;
 
-  constructor(public authService: AuthService) {
+  constructor(
+    public githubService: GithubService
+  ) {
     const loginUriBuilder = new URL('https://github.com/login/oauth/authorize');
-    loginUriBuilder.searchParams.append('client_id', authService.githubApiClientId);
+    loginUriBuilder.searchParams.append('client_id', githubService.githubApiClientId);
     loginUriBuilder.searchParams.append('redirect_uri', window.location.href);
     // loginUriBuilder.searchParams.append('state', authervice.sessionStateToken);
 
