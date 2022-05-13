@@ -187,28 +187,31 @@ export class GithubService {
   }
 
   public async sync() {
-    const currentGist = await this.retrieveGist();
+    if (this.isAuthenticated) {
+      const currentGist = await this.retrieveGist();
 
-    const currentDbText = await (await this.dataService.export()).text();
+      // pull in changes from remote
+      await this.dataService.import(currentGist.content);
 
-    // pull in changes from remote
-    await this.dataService.import(currentGist.content);
-
-    // merge local changes on top
-    await this.dataService.import(currentDbText);
-
-    // store the merged result
-    const mergedDbText = await (await this.dataService.export()).text();
-
-    console.log(currentDbText);
-
-    this.githubClient.request(`PATCH /gists/${currentGist.gistId}`, {
-      files: {
-        'rataka.db.json': {
-          content: mergedDbText,
-        }
+      // merge local changes on top
+      if (this.dataService.hasPendingChanges) {
+        const currentDbText = await (await this.dataService.export()).text();
+        await this.dataService.import(currentDbText);
       }
-    })
+
+      // store the merged result
+      const mergedDbText = await (await this.dataService.export()).text();
+
+      this.githubClient.request(`PATCH /gists/${currentGist.gistId}`, {
+        files: {
+          'rataka.db.json': {
+            content: mergedDbText,
+          }
+        }
+      })
+
+      this.dataService.hasPendingChanges = false;
+    }
   }
 
 

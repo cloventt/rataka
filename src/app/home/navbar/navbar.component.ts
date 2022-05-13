@@ -14,6 +14,8 @@ export class NavbarComponent implements OnInit {
 
   loginUri: string;
 
+  loading: boolean = false;
+
   constructor(
     public githubService: GithubService
   ) {
@@ -46,6 +48,14 @@ export class NavbarComponent implements OnInit {
           }
         });
       });
+    }
+  }
+
+  async callSync() {
+    if (!this.loading) {
+      this.loading = true;
+      await this.githubService.sync()
+      this.loading = false;
     }
   }
 

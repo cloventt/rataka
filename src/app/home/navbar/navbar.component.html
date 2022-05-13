@@ -29,7 +29,7 @@
                         </a>
                         <a class="button" (click)="githubService.logOut()"
                             *ngIf="githubService.isAuthenticated">Logout</a>
-                        <a class="button is-info" (click)="githubService.sync()"
+                        <a class="button is-info {{ loading ? 'is-loading' : ''}}" (click)="callSync()"
                             *ngIf="githubService.isAuthenticated">Sync</a>
                     </div>
                 </div>
