@@ -189,13 +189,17 @@ export class GithubService {
   public async sync() {
     if (this.isAuthenticated) {
       const currentGist = await this.retrieveGist();
+      const currentDbText = await (await this.dataService.export()).text();
 
-      // pull in changes from remote
-      await this.dataService.import(currentGist.content);
+      const migrated = await this.dataService.migrate(currentGist.content);
+
+      if (!migrated) {
+        // pull in changes from remote
+        await this.dataService.import(currentGist.content);
+      }
 
       // merge local changes on top
       if (this.dataService.hasPendingChanges) {
-        const currentDbText = await (await this.dataService.export()).text();
         await this.dataService.import(currentDbText);
       }
 

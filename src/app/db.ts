@@ -10,6 +10,7 @@ export interface ContactLogEntry {
   rstReceived?: string;
   rstSent?: string;
   notes?: string;
+  deleted?: boolean;
 }
 
 export class AppDB extends Dexie {
@@ -17,8 +18,12 @@ export class AppDB extends Dexie {
 
   constructor() {
     super('ratakaHamCallLog');
-    this.version(3).stores({
+    this.version(4).stores({
       contactLogs: '++id, callsign',
+    }).upgrade(tx => {
+      return tx.table('contactLogs').toCollection().modify(contactLog => {
+        contactLog.deleted = false;
+      })
     });
   }
 

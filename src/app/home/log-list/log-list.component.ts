@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { Subscription } from 'dexie';
 import { DataService } from '../../data.service';
 import { ContactLogEntry } from '../../db';
@@ -11,7 +11,7 @@ import { ContactLogEntry } from '../../db';
 })
 export class LogListComponent implements OnInit, OnDestroy {
   
-  faTrash = faTrash;
+  faSearch = faSearch;
 
   contacts: ContactLogEntry[] = []
 
