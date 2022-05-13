@@ -2,7 +2,7 @@
     <div class="panel-block" *ngFor="let rowData of contacts">
         <a [routerLink]="['/edit', rowData.id]">
             <span class="panel-icon">
-                <i class="fas fa-search" aria-hidden="true"></i>
+                <fa-icon [icon]="faSearch"></fa-icon>
             </span>
         </a>
         <span class="tags">
