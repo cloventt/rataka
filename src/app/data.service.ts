@@ -9,6 +9,8 @@ import { db, ContactLogEntry } from './db';
 })
 export class DataService {
 
+  hasPendingChanges: boolean = false;
+
   constructor() { }
 
   public async upsert(entry: ContactLogEntry): Promise<number> {
@@ -18,6 +20,7 @@ export class DataService {
     if (entry.timestamp == null) {
       entry.timestamp = new Date().toISOString();
     }
+    this.hasPendingChanges = true;
     return db.contactLogs.put(entry);
   }
 
@@ -42,11 +45,14 @@ export class DataService {
   }
 
   public delete(id: number) {
+    this.hasPendingChanges = true;
     return db.contactLogs.delete(id);
   }
 
   public export() {
-    return db.export();
+    return db.export({
+      prettyJson: true,
+    });
   }
 
   public import(dataBlob: string) {
