@@ -90,30 +90,8 @@
                                 </a>
                             </p>
                             <div class="control">
-                                <div class="select">
-                                    <select name="rxr" ngModel>
-                                        <option>5</option>
-                                        <option>4</option>
-                                        <option>3</option>
-                                        <option>2</option>
-                                        <option>1</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="control">
-                                <div class="select">
-                                    <select name="rxs" ngModel>
-                                        <option>9</option>
-                                        <option>8</option>
-                                        <option>7</option>
-                                        <option>6</option>
-                                        <option>5</option>
-                                        <option>4</option>
-                                        <option>3</option>
-                                        <option>2</option>
-                                        <option>1</option>
-                                    </select>
-                                </div>
+                                <input class="input" type="number" placeholder="59" name="rstReceived"
+                                    [ngModel]="contactData?.rstReceived">
                             </div>
                         </div>
                         <div class="field has-addons">
@@ -123,30 +101,8 @@
                                 </a>
                             </p>
                             <div class="control">
-                                <div class="select">
-                                    <select name="txr" ngModel>
-                                        <option>5</option>
-                                        <option>4</option>
-                                        <option>3</option>
-                                        <option>2</option>
-                                        <option>1</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="control">
-                                <div class="select">
-                                    <select name="txs" ngModel>
-                                        <option>9</option>
-                                        <option>8</option>
-                                        <option>7</option>
-                                        <option>6</option>
-                                        <option>5</option>
-                                        <option>4</option>
-                                        <option>3</option>
-                                        <option>2</option>
-                                        <option>1</option>
-                                    </select>
-                                </div>
+                                <input class="input" type="number" placeholder="59" name="rstSent"
+                                    [ngModel]="contactData?.rstSent">
                             </div>
                         </div>
                     </div>

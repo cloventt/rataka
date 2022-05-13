@@ -46,8 +46,8 @@ export class AddComponent implements OnInit {
       frequency: data.value.frequency,
       mode: data.value.mode,
       power: data.value.power,
-      rstReceived: data.value.txr + data.value.txs,
-      rstSent: data.value.rxr + data.value.rxs,
+      rstReceived: data.value.rstReceived,
+      rstSent: data.value.rstSent,
       notes: data.value.notes,
     }
     this.dataService
