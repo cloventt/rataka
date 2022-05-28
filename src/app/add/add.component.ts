@@ -1,15 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from '../data.service';
 import { ContactLogEntry } from '../db';
+import { LocationService } from '../location.service';
 
 @Component({
   selector: 'app-add',
   templateUrl: './add.component.html',
   styleUrls: ['./add.component.css']
 })
-export class AddComponent implements OnInit {
+export class AddComponent implements OnInit, OnChanges {
 
   contactData?: ContactLogEntry = {
     callsign: '',
@@ -18,10 +19,17 @@ export class AddComponent implements OnInit {
 
   edit = false;
 
+  @Input() latitude?: number;
+
+  @Input() longitude?: number;
+
+  @Input() maidenhead?: string;
+
   constructor(
     private dataService: DataService,
     private router: Router,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private locationService: LocationService
   ) {
 
   }
@@ -35,7 +43,19 @@ export class AddComponent implements OnInit {
           this.contactData = Object.assign({}, savedData);
         })
       })
+    } else {
+      this.locationService.getLocation().then((position => {
+        this.latitude = position.coords.latitude;
+        this.longitude = position.coords.longitude;
+        this.maidenhead = LocationService.toMaidenhead(this.latitude, this.longitude);
+      })).catch((error) => {
+        console.error('Failed to get the location from Geolocation API', error);
+      })
     }
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    console.debug(changes);
   }
 
   onSubmit(data: NgForm): void {

@@ -121,6 +121,55 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label">Location</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field has-addons">
+                            <p class="control">
+                                <a class="button is-static">
+                                    Lat
+                                </a>
+                            </p>
+                            <div class="control">
+                                <input class="input" type="number" placeholder="-43.000" name="latitude"
+                                    [ngModel]="latitude">
+                            </div>
+                        </div>
+                        <div class="field has-addons">
+                            <p class="control">
+                                <a class="button is-static">
+                                    Long
+                                </a>
+                            </p>
+                            <div class="control">
+                                <input class="input" type="number" placeholder="172.000" name="longitude"
+                                    [ngModel]="longitude">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label"></label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field has-addons">
+                            <p class="control">
+                                <a class="button is-static">
+                                    Grid
+                                </a>
+                            </p>
+                            <div class="control">
+                                <input class="input" type="text" placeholder="RE66" name="maidenhead"
+                                    [ngModel]="maidenhead">
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </section>
             <footer class="modal-card-foot" style="justify-content: flex-end">
                 <button *ngIf="edit" class="button is-danger is-right" (click)="delete(contactData?.id)" routerLink="/" routerLinkActive="active">Delete</button>
