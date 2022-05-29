@@ -40,4 +40,8 @@ export class LocationService {
     out += String.fromCharCode((subsquare2 % 24) + 97);
     return out;
   }
+
+  public static fromMaidenhead(maidenhead: string): [number, number] {
+    return [0, 0];
+  }
 }
