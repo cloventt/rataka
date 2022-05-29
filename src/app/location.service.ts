@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
 
-import { Big } from 'big.js'
-
 @Injectable({
   providedIn: 'root'
 })
@@ -22,18 +20,24 @@ export class LocationService {
   }
 
   public static toMaidenhead(latitude: number, longitude: number): string {
-    return '';
-  }
 
-  public static toDegrees(decimal: number): [number, number, number] {
-    const negative = (decimal < 0) ? -1 : 1;
-    let n = Big(Math.abs(decimal));
-    const out = [n.round(0, 0).toNumber() * negative];
-    n = n.sub(n.round(0, 0)).mul(60)
-    out.push(n.round(0, 0).toNumber());
-    n = n.sub(n.round(0, 0)).mul(60)
-    out.push(n.round(0, 0).toNumber());
-    return [out[0], out[1], out[2]]; 
+    const zeroedLong = (longitude + 180) % 360;
+    const zeroedLat = (latitude + 90) % 180;
 
+    let out = '';
+    const field1 = Math.floor((zeroedLong / 20) % 18)
+    const field2 = Math.floor((zeroedLat / 10) % 18)
+    out += String.fromCharCode(field1 + 65);
+    out += String.fromCharCode(field2 + 65);
+
+    out += Math.floor((zeroedLong % 20) / 2);
+    out += Math.floor((zeroedLat % 10) / 1);
+
+    const subsquare1 = Math.floor((zeroedLong % 2) * (60 / 5));
+    const subsquare2 = Math.floor((zeroedLat % 1) * (60 / 2.5));
+
+    out += String.fromCharCode((subsquare1 % 24) + 97);
+    out += String.fromCharCode((subsquare2 % 24) + 97);
+    return out;
   }
 }
