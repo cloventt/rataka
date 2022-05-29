@@ -21,9 +21,10 @@ describe('LocationService', () => {
 
   it('should correctly convert decimal to degrees', () => {
     expect(LocationService.toDegrees(172)).toEqual([172, 0, 0]);
-    expect(LocationService.toDegrees(46.951)).toEqual([46, 57, 4]);
-    expect(LocationService.toDegrees(-7.439)).toEqual([-7, 26, 19]);
-    expect(LocationService.toDegrees(-14.265)).toEqual([-14, 15, 55]);
-    expect(LocationService.toDegrees(-32.251)).toEqual([-32, 15, 5]);
+    expect(LocationService.toDegrees(-172)).toEqual([-172, 0, 0]);
+    expect(LocationService.toDegrees(46.951)).toEqual([46, 57, 3]);
+    expect(LocationService.toDegrees(-7.439)).toEqual([-7, 26, 20]);
+    expect(LocationService.toDegrees(-14.265)).toEqual([-14, 15, 54]);
+    expect(LocationService.toDegrees(-32.251)).toEqual([-32, 15, 3]);
   })
 });
